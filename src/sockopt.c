@@ -86,7 +86,7 @@ CAMLprim value caml_extunix_setsockopt_int(value fd, value k, value v)
     assert(0);
   }
 
-  if (0 != setsockopt(Int_val(fd), tcp_options[Int_val(k)].level, tcp_options[Int_val(k)].opt, &optval, optlen))
+  if (0 != setsockopt(Int_val(fd), tcp_options[Int_val(k)].level, tcp_options[Int_val(k)].opt, (void *)&optval, optlen))
   {
 #ifdef _WIN32
     win32_maperr(WSAGetLastError());
@@ -117,7 +117,7 @@ CAMLprim value caml_extunix_getsockopt_int(value fd, value k)
     assert(0);
   }
 
-  if (0 != getsockopt(Int_val(fd), tcp_options[Int_val(k)].level, tcp_options[Int_val(k)].opt, &optval, &optlen))
+  if (0 != getsockopt(Int_val(fd), tcp_options[Int_val(k)].level, tcp_options[Int_val(k)].opt, (void *)&optval, &optlen))
   {
 #ifdef _WIN32
     win32_maperr(WSAGetLastError());
