@@ -57,6 +57,7 @@ let config_defines = [
   ]
 
 let config_includes = [
+  "errno.h";
   "caml/memory.h";
   "caml/fail.h";
   "caml/unixsupport.h";
@@ -65,7 +66,6 @@ let config_includes = [
   "caml/custom.h";
   "caml/bigarray.h";
   "string.h";
-  "errno.h";
   "assert.h";
   ]
 
