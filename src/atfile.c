@@ -5,12 +5,7 @@
 #if defined(EXTUNIX_HAVE_ATFILE)
 
 /* otherlibs/unix/cst2constr.h */
-#if OCAML_VERSION_MAJOR >= 5
 extern value unix_cst_to_constr(int n, int * tbl, int size, int deflt);
-#else
-extern value cst_to_constr(int n, int * tbl, int size, int deflt);
-#define unix_cst_to_constr cst_to_constr
-#endif
 
 static int file_kind_table[] = {
   S_IFREG, S_IFDIR, S_IFCHR, S_IFBLK, S_IFLNK, S_IFIFO, S_IFSOCK
